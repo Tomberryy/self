@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import Menu from './components/Menu/Menu';
+import Menu from './components/Menu';
 import './jass.scss';
+import Game from './components/Game';
 
 const Jass = () => {
     const [gameState, setGameState] = useState('menu');
@@ -18,7 +19,8 @@ const Jass = () => {
         <div className={`Jass ${theme}`}>
             {
                 {
-                    'menu': <Menu onSetTheme={setTheme} onSetParties={onSetParties} theme={theme} />
+                    'menu': <Menu onSetTheme={setTheme} onSetParties={onSetParties} theme={theme} />,
+                    'game': <Game />
                 }[gameState]
             }
         </div>
