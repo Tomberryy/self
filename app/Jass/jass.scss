@@ -1,0 +1,39 @@
+.Jass {
+    width: 100vw;
+    height: 100vh;
+
+    &.dark {
+        background-color: black;
+        color: white;
+    }
+
+    &.white {
+        background-color: white;
+        color: black;
+    }
+
+    &.purple {
+        background-color: peru;
+        color: white;
+    }
+
+    &.darkblue {
+        background-color: darkblue;
+        color: white;
+    }
+
+    &.lightblue {
+        background-color: lightblue;
+        color: black;
+    }
+
+    .Menu {
+        .theme-choice {
+            height: 20%;
+        }
+
+        .name-choice {
+            height: 40%;
+        }
+    }
+}
