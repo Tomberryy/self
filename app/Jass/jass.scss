@@ -5,6 +5,17 @@
     transition-property: background-color;
     transition-duration: 1s;
 
+    font-family: ubuntu;
+
+    .row {
+        max-width: 100%;
+    }
+
+    .menu-row {
+        max-width : 500px;
+        margin : auto
+    }
+
     &.dark {
         background-color: black;
         color: white;
@@ -98,10 +109,6 @@
                 margin: 10px;
                 font-size: 30px;
             }
-        }
-
-        .name-choice {
-            height: 40%;
         }
     }
 }

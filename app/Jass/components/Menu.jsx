@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Col, Row } from 'reactstrap';
+import { Button, Col, Input, Label, Row } from 'reactstrap';
 
 const Menu = ({onSetParties, onSetTheme, theme}) => {
-    const [parties, setParties] = useState([]);
+    const [partyOne, setPartyOne] = useState("Us");
+    const [partyTwo, setPartyTwo] = useState("Them");
     const themes = [
         {
             name: 'dark',
@@ -30,9 +31,20 @@ const Menu = ({onSetParties, onSetTheme, theme}) => {
             border: 'black'
         },
     ]
+
+    const handleParties = () => {
+        if (partyOne && partyTwo) {
+            onSetParties({
+                partyOne: partyOne,
+                partyTwo: partyTwo
+            })
+        }
+    }
+
     return (
         <div className='Menu h-100'>
-            <Row className='h-100'>
+            <Row className='menu-row'>
+                <h1 className='text-center mt-5'>JASS</h1>
                 <Col sm="12" className="theme-choice d-flex justify-content-center align-items-center">
                     {themes.map(t => 
                         <i
@@ -43,8 +55,13 @@ const Menu = ({onSetParties, onSetTheme, theme}) => {
                         />
                     )}
                 </Col>
-                <Col sm="12" className='border-top name-choice'></Col>
-                <Col xs="12" className='border-top name-choice'></Col>
+                <Col sm="12">
+                    <Label>TEAM 1</Label>
+                    <Input type="text" className="text-center mb-2" value={partyOne} onChange={(e) => setPartyOne(e.target.value)} />
+                    <Label>TEAM 2</Label>
+                    <Input type="text" className="text-center" value={partyTwo} onChange={(e) => setPartyTwo(e.target.value)} />
+                    <Button color="success" className="w-100 mt-3" onClick={handleParties}>Play <i className='bi bi-suit-spade-fill'></i></Button>
+                </Col>
             </Row>
         </div>
     )
