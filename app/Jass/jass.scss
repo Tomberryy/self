@@ -12,7 +12,7 @@
         color: black;
     }
 
-    &.purple {
+    &.orange {
         background-color: peru;
         color: white;
     }
@@ -27,9 +27,74 @@
         color: black;
     }
 
+    @keyframes fillUpBlack {
+        0% {
+            background-color: transparent;
+            /* Start with a transparent background */
+        }
+
+        100% {
+            background-color: black;
+            /* End with the final background color */
+        }
+    }
+
+    @keyframes fillUpWhite {
+        0% {
+            background-color: transparent;
+            /* Start with a transparent background */
+        }
+
+        100% {
+            background-color: white;
+            /* End with the final background color */
+        }
+    }
+
+    @keyframes fillUpOrange {
+        0% {
+            background-color: transparent;
+            /* Start with a transparent background */
+        }
+
+        100% {
+            background-color: peru;
+            /* End with the final background color */
+        }
+    }
+
+    @keyframes fillUpDarkBlue {
+        0% {
+            background-color: transparent;
+            /* Start with a transparent background */
+        }
+
+        100% {
+            background-color: darkblue;
+            /* End with the final background color */
+        }
+    }
+
+    @keyframes fillUpLightBlue {
+        0% {
+            background-color: transparent;
+            /* Start with a transparent background */
+        }
+
+        100% {
+            background-color: lightblue;
+            /* End with the final background color */
+        }
+    }
+
     .Menu {
         .theme-choice {
             height: 20%;
+
+            >* {
+                margin: 10px;
+                font-size: 30px;
+            }
         }
 
         .name-choice {
