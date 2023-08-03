@@ -6,13 +6,8 @@ import './jass.scss';
 const Jass = () => {
     const [gameState, setGameState] = useState('menu');
     const [theme, setTheme]         = useState('dark');
-    const [parties, setParties]     = useState({});
 
-    const onSetParties = values => {
-        setParties({
-            partyOne: values.partyOne,
-            partyTwo: values.partyTwo
-        })
+    const onSetParties = () => {
         setGameState('game')
     }
 
