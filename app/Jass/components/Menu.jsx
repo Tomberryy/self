@@ -1,9 +1,13 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Button, Col, Input, Label, Row } from 'reactstrap';
+import { createParties } from '../../store/jassSlice';
 
 const Menu = ({onSetParties, onSetTheme, theme}) => {
     const [partyOne, setPartyOne] = useState("Us");
     const [partyTwo, setPartyTwo] = useState("Them");
+    const dispatch                = useDispatch();
+
     const themes = [
         {
             name: 'dark',
@@ -34,10 +38,17 @@ const Menu = ({onSetParties, onSetTheme, theme}) => {
 
     const handleParties = () => {
         if (partyOne && partyTwo) {
-            onSetParties({
-                partyOne: partyOne,
-                partyTwo: partyTwo
-            })
+            onSetParties()
+            dispatch(createParties({
+                partyOne: {
+                    name: partyOne,
+                    score: 0
+                },
+                partyTwo: {
+                    name: partyTwo,
+                    score: 0
+                },
+            }));
         }
     }
 

@@ -16,7 +16,7 @@ const Jass = () => {
             {
                 {
                     'menu': <Menu onSetTheme={setTheme} onSetParties={onSetParties} theme={theme} />,
-                    'game': <Game parties={parties} />
+                    'game': <Game />
                 }[gameState]
             }
         </div>

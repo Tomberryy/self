@@ -1,14 +1,20 @@
 import { useState } from "react";
 import Canvas from "./Canvas";
+import { useSelector } from "react-redux";
 
 const Overview = () => {
-    function randomIntFromInterval(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    }
+    const { parties } = useSelector(state => state.jass);
 
+    if (!parties)
+        return (
+        <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>
+        )
     return (
         <div className="Overview h-100">
-            <Canvas />
+            <Canvas data={parties.partyOne.score} />
+            <Canvas data={parties.partyTwo.score} />
         </div>
     );
 };
