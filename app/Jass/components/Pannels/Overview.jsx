@@ -14,7 +14,6 @@ const Overview = () => {
     console.log(parties, parties.partyOne.score);
     return (
         <div className="Overview h-100">
-
             <h2>{parties.partyOne.name} - {parties.partyOne.score}</h2>
             <Canvas score={parties.partyOne.score} />
             <h2>{parties.partyTwo.name} - {parties.partyTwo.score}</h2>
