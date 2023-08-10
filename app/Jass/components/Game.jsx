@@ -18,6 +18,7 @@ const Game = () => {
     });
 
     const handleSwipe = (direction) => {
+        console.log(direction)
         if (direction === "right" && pannel > 0) setPannel(pannel - 1);
         if (direction === "left" && pannel < 2) setPannel(pannel + 1);
     };
@@ -26,16 +27,16 @@ const Game = () => {
 
     return (
         <div {...events} className="Game h-100">
-            <Row>
+            <Row className="game-row h-100">
                 <Col xs={1}>
                     {pannel !== 2 && (
                         <Swipable
                             direction="left"
-                            onClick={() => handleSwipe("left")}
+                            SwipableClicked={(values) => handleSwipe(values)}
                         />
                     )}
                 </Col>
-                <Col xs={10}>
+                <Col xs={10} className="d-flex justify-content-center">
                     {
                         {
                             0: <ScoreWriter />,
@@ -48,7 +49,7 @@ const Game = () => {
                     {pannel !== 0 && (
                         <Swipable
                             direction="right"
-                            onClick={() => handleSwipe("right")}
+                            SwipableClicked={(values) => handleSwipe(values)}
                         />
                     )}
                 </Col>
