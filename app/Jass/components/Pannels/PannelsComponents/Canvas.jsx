@@ -57,7 +57,9 @@ const Canvas = ({score}) => {
     }, [score]);
 
     return (
-        <canvas ref={canvasRef} width="400" height="700"/>
+        <div className="Canvas">
+            <canvas ref={canvasRef} width="300" height="400"/>
+        </div>
     );
 };
 
