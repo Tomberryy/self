@@ -5,6 +5,7 @@ import ScoreWriter from "./Pannels/ScoreWriter";
 import AddNumbers from "./Pannels/AddNumbers";
 import Swipable from "./Pannels/PannelsComponents/Swipable";
 import { useSelector } from "react-redux";
+import { Col, Row } from "reactstrap";
 
 const Game = () => {
     const { parties } = useSelector((state) => state.jass);
@@ -12,7 +13,7 @@ const Game = () => {
 
     const events = useFingerEvents({
         onSwipe: (event) => {
-            handleSwipe(event.direction)
+            handleSwipe(event.direction);
         },
     });
 
@@ -25,25 +26,33 @@ const Game = () => {
 
     return (
         <div {...events} className="Game h-100">
-            {pannel !== 2 && (
-                <Swipable
-                    direction="right"
-                    onClick={() => handleSwipe("right")}
-                />
-            )}
-            {pannel !== 0 && (
-                <Swipable
-                    direction="left"
-                    onClick={() => handleSwipe("left")}
-                />
-            )}
-            {
-                {
-                    0: <ScoreWriter />,
-                    1: <Overview />,
-                    2: <AddNumbers />,
-                }[pannel]
-            }
+            <Row>
+                <Col xs={1}>
+                    {pannel !== 2 && (
+                        <Swipable
+                            direction="left"
+                            onClick={() => handleSwipe("left")}
+                        />
+                    )}
+                </Col>
+                <Col xs={10}>
+                    {
+                        {
+                            0: <ScoreWriter />,
+                            1: <Overview />,
+                            2: <AddNumbers />,
+                        }[pannel]
+                    }
+                </Col>
+                <Col xs={1}>
+                    {pannel !== 0 && (
+                        <Swipable
+                            direction="right"
+                            onClick={() => handleSwipe("right")}
+                        />
+                    )}
+                </Col>
+            </Row>
         </div>
     );
 };
