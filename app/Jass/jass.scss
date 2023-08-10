@@ -1,6 +1,7 @@
 .Jass {
     width: 100vw;
     height: 100vh;
+    min-height : 1000px;
 
     transition-property: background-color;
     transition-duration: 1s;
@@ -110,5 +111,23 @@
                 font-size: 30px;
             }
         }
+    }
+
+    .Game {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .Overview {
+            .Canvas {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+
+    .Swipable {
+        position: absolute;
+        top: calc(100% - 25px);
+        background-color: aqua;
     }
 }
