@@ -1,6 +1,6 @@
-const Swipable = ({direction}) => {
+const Swipable = ({SwipableClicked, direction}) => {
     return (
-        <div className={`Swipable ${direction}`}>
+        <div onClick={() => SwipableClicked(direction)} className={`Swipable -${direction}`}>
             <i className={`bi bi-chevron-${direction}`}></i>
         </div>
     );
